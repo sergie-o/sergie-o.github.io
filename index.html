@@ -1,66 +1,670 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
-    <title>Sergio Eguakun | Portfolio</title>
     <meta charset="UTF-8" />
-    <style>
-      body {
-        font-family: Arial;
-        max-width: 900px;
-        margin: auto;
-        padding: 40px;
-        line-height: 1.6;
-      }
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-      h1 {
-        font-size: 40px;
-      }
+    <!-- Tailwind (CDN) + enable class-based dark mode -->
+    <script>
+      tailwind.config = { darkMode: "class" };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
 
-      .project {
-        border: 1px solid #ddd;
-        padding: 20px;
-        margin-top: 20px;
-        border-radius: 10px;
-      }
-    </style>
+    <!-- Icons (optional, kept from template) -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
+
+    <title>Sergio Eguakun | Portfolio</title>
   </head>
 
-  <body>
-    <h1>Sergio Eguakun</h1>
+  <body
+    class="bg-white text-slate-900 dark:bg-[#06021a] dark:text-white font-[Poppins]"
+  >
+    <!-- NAV -->
+    <nav
+      class="bg-white/80 dark:bg-[#111827]/80 backdrop-blur border-b border-slate-200/60 dark:border-white/10 py-3 md:flex md:items-center md:justify-between"
+    >
+      <div class="flex items-center justify-between mx-6 md:mx-10 my-2">
+        <!-- Logo dot -->
+        <div
+          class="select-none h-[40px] w-[40px] rounded-xl bg-gradient-to-br from-[#00A8E8] to-[#FF9900]"
+        ></div>
 
-    <p>
-      Industrial Engineer | Operations & Logistics | Data Science & Machine
-      Learning
-    </p>
+        <span
+          class="ml-3 text-2xl cursor-pointer text-slate-900 dark:text-white"
+        >
+          <b>sergio<span class="text-[#FF9900]">.</span></b>
+        </span>
 
-    <h2>Projects</h2>
+        <span
+          class="text-3xl cursor-pointer text-slate-900 dark:text-white md:hidden block"
+        >
+          <ion-icon name="menu-outline" onclick="Menu(this)"></ion-icon>
+        </span>
+      </div>
 
-    <div class="project">
-      <h3>MomentumAI – Supply Chain Analytics</h3>
-      <p>
-        Analyzing shipment pricing and logistics performance using Python and
-        Power BI dashboards.
-      </p>
-      <a href="https://github.com/sergie--o/momentumai">View Project</a>
-    </div>
+      <ul
+        class="md:flex md:items-center md:z-auto md:static bg-white dark:bg-[#111827] absolute w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500 border-t md:border-0 border-slate-200/60 dark:border-white/10"
+      >
+        <li class="mx-4 my-4 md:my-0">
+          <a
+            href="#home"
+            class="text-slate-900 dark:text-white hover:text-[#00A8E8] duration-300"
+            >Home</a
+          >
+        </li>
+        <li class="mx-4 my-4 md:my-0">
+          <a
+            href="#about"
+            class="text-slate-900 dark:text-white hover:text-[#00A8E8] duration-300"
+            >About</a
+          >
+        </li>
+        <li class="mx-4 my-4 md:my-0">
+          <a
+            href="#skills"
+            class="text-slate-900 dark:text-white hover:text-[#00A8E8] duration-300"
+            >Skills</a
+          >
+        </li>
+        <li class="mx-4 my-4 md:my-0">
+          <a
+            href="#projects"
+            class="text-slate-900 dark:text-white hover:text-[#00A8E8] duration-300"
+            >Projects</a
+          >
+        </li>
 
-    <div class="project">
-      <h3>Real Estate Price Prediction</h3>
-      <p>
-        Random Forest model predicting housing prices based on energy efficiency
-        features.
-      </p>
-    </div>
+        <!-- Theme toggle -->
+        <li class="mx-4 my-4 md:my-0">
+          <button
+            id="themeToggle"
+            class="border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white bg-white/70 dark:bg-white/5 hover:bg-slate-50 dark:hover:bg-white/10 h-9 px-3 rounded-lg"
+          >
+            <span id="themeIcon">🌙</span>
+          </button>
+        </li>
 
-    <h2>Skills</h2>
+        <!-- Contact CTA -->
+        <li class="mx-4 my-4 md:my-0">
+          <a
+            href="#contact"
+            class="inline-flex items-center justify-center bg-gradient-to-r from-[#00A8E8] to-[#FF9900] shadow-lg shadow-[#00A8E8]/10 text-white h-9 w-36 rounded-lg font-semibold"
+          >
+            👋 Contact
+          </a>
+        </li>
+      </ul>
+    </nav>
 
-    <ul>
-      <li>Python</li>
-      <li>SQL</li>
-      <li>Power BI</li>
-      <li>Pandas</li>
-      <li>Machine Learning</li>
-      <li>Operations Analytics</li>
-    </ul>
+    <!-- HERO -->
+    <section id="home">
+      <div class="px-6 md:px-[80px] py-12 bg-slate-50 dark:bg-[#111827]">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+          <div class="order-2 md:order-1">
+            <p class="text-3xl md:text-4xl font-extrabold">
+              👋 Hi, I'm
+              <span
+                class="bg-clip-text text-transparent bg-gradient-to-r from-[#00A8E8] to-[#FF9900]"
+                >Sergio</span
+              >
+            </p>
+            <p
+              class="mt-4 text-slate-600 dark:text-slate-200 text-lg leading-relaxed"
+            >
+              Industrial Engineer focused on <b>Operations & Logistics</b> with
+              strong skills in <b>Data Science & Machine Learning</b>. I build
+              analytics + ML projects that turn messy data into clear decisions.
+            </p>
+
+            <div class="mt-6 flex flex-wrap gap-3">
+              <a
+                href="https://www.linkedin.com/in/sergio-eguakun-machine-learning-engineer/"
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center justify-center bg-gradient-to-r from-[#00A8E8] to-[#FF9900] text-white h-11 px-5 rounded-lg shadow-lg shadow-[#00A8E8]/10 font-semibold"
+              >
+                View LinkedIn
+              </a>
+
+              <a
+                href="mailto:sergioeguakun11@gmail.com"
+                class="inline-flex items-center justify-center border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-white/5 hover:bg-white dark:hover:bg-white/10 h-11 px-5 rounded-lg font-semibold"
+              >
+                Email me
+              </a>
+
+              <a
+                href="https://github.com/sergie-o"
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center justify-center border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-white/5 hover:bg-white dark:hover:bg-white/10 h-11 px-5 rounded-lg font-semibold"
+              >
+                GitHub
+              </a>
+            </div>
+
+            <div class="mt-6 flex flex-wrap gap-2 text-sm">
+              <span
+                class="px-3 py-1 rounded-full bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-200"
+                >Operations Analytics</span
+              >
+              <span
+                class="px-3 py-1 rounded-full bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-200"
+                >Machine Learning</span
+              >
+              <span
+                class="px-3 py-1 rounded-full bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-200"
+                >Python • SQL • Power BI</span
+              >
+            </div>
+          </div>
+
+          <div class="order-1 md:order-2 flex justify-center">
+            <!-- Simple avatar block (no external image needed) -->
+            <div
+              class="h-[240px] w-[240px] rounded-3xl bg-gradient-to-br from-[#00A8E8]/30 to-[#FF9900]/20 border border-slate-200 dark:border-white/10 shadow-xl shadow-black/5 dark:shadow-black/30 flex items-center justify-center"
+            >
+              <div
+                class="h-[150px] w-[150px] rounded-2xl bg-gradient-to-br from-[#00A8E8] to-[#FF9900] opacity-90"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="py-14">
+      <div class="max-w-6xl mx-auto px-6">
+        <p class="text-center text-3xl font-extrabold">
+          Here's More
+          <span
+            class="bg-clip-text text-transparent bg-gradient-to-r from-[#00A8E8] to-[#FF9900]"
+            >About Me</span
+          >
+        </p>
+
+        <div class="mt-10 grid md:grid-cols-2 gap-8 items-start">
+          <!-- About text -->
+          <div
+            class="bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-2xl p-6 shadow-lg shadow-black/5 dark:shadow-black/30"
+          >
+            <p class="text-slate-700 dark:text-slate-200 leading-relaxed">
+              I’m an Industrial Engineer (Mechanical focus) with a strong
+              interest in solving real operational problems using data. I enjoy
+              building end-to-end projects: data prep → modeling → insights →
+              dashboard/storytelling.
+            </p>
+            <p class="mt-4 text-slate-700 dark:text-slate-200 leading-relaxed">
+              I’m currently focusing on supply chain, reliability, and analytics
+              projects that mirror real warehouse/operations KPIs.
+            </p>
+          </div>
+
+          <!-- Code-style card -->
+          <div
+            class="bg-[#0b1022] border border-white/10 rounded-2xl p-6 shadow-lg shadow-black/30"
+          >
+            <div class="flex gap-2 mb-4">
+              <div class="h-3 w-3 rounded-full bg-red-500"></div>
+              <div class="h-3 w-3 rounded-full bg-yellow-500"></div>
+              <div class="h-3 w-3 rounded-full bg-green-500"></div>
+            </div>
+            <pre
+              class="text-sm md:text-[15px] leading-relaxed whitespace-pre-wrap"
+            >
+<span class="text-pink-400">const</span> <span class="text-blue-300">aboutMe</span> = () => {
+  <span class="text-pink-400">return</span> {
+    <span class="text-yellow-300">name:</span> <span class="text-white">"Sergio Eguakun"</span>,
+    <span class="text-yellow-300">role:</span> <span class="text-white">"Industrial Engineer"</span>,
+    <span class="text-yellow-300">focus:</span> <span class="text-white">"Ops • Logistics • Data Science • ML"</span>,
+    <span class="text-yellow-300">stack:</span> [
+      <span class="text-white">"Python"</span>, <span class="text-white">"SQL"</span>, <span class="text-white">"Power BI"</span>,
+      <span class="text-white">"Pandas"</span>, <span class="text-white">"Scikit-learn"</span>
+    ]
+  }
+}
+          </pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="py-14 bg-slate-50 dark:bg-[#111827]">
+      <div class="max-w-6xl mx-auto px-6">
+        <p class="text-center text-3xl font-extrabold">
+          🤹 Checkout my
+          <span
+            class="bg-clip-text text-transparent bg-gradient-to-r from-[#00A8E8] to-[#FF9900]"
+            >skills</span
+          >
+        </p>
+
+        <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div
+            class="bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-2xl p-5"
+          >
+            <p class="font-bold text-lg">Analytics</p>
+            <p class="mt-2 text-slate-600 dark:text-slate-200 text-sm">
+              KPIs • Root-cause • Process thinking • Metrics
+            </p>
+          </div>
+          <div
+            class="bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-2xl p-5"
+          >
+            <p class="font-bold text-lg">Machine Learning</p>
+            <p class="mt-2 text-slate-600 dark:text-slate-200 text-sm">
+              Classification • Regression • Evaluation • Pipelines
+            </p>
+          </div>
+          <div
+            class="bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-2xl p-5"
+          >
+            <p class="font-bold text-lg">Python & Data</p>
+            <p class="mt-2 text-slate-600 dark:text-slate-200 text-sm">
+              Pandas • NumPy • Scikit-learn • Visualization
+            </p>
+          </div>
+          <div
+            class="bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-2xl p-5"
+          >
+            <p class="font-bold text-lg">BI & SQL</p>
+            <p class="mt-2 text-slate-600 dark:text-slate-200 text-sm">
+              Power BI • DAX basics • SQL querying
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-8 flex flex-wrap gap-2">
+          <span
+            class="px-3 py-1 rounded-full bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 text-sm text-slate-700 dark:text-slate-200"
+            >Python</span
+          >
+          <span
+            class="px-3 py-1 rounded-full bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 text-sm text-slate-700 dark:text-slate-200"
+            >SQL</span
+          >
+          <span
+            class="px-3 py-1 rounded-full bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 text-sm text-slate-700 dark:text-slate-200"
+            >Power BI</span
+          >
+          <span
+            class="px-3 py-1 rounded-full bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 text-sm text-slate-700 dark:text-slate-200"
+            >Pandas</span
+          >
+          <span
+            class="px-3 py-1 rounded-full bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 text-sm text-slate-700 dark:text-slate-200"
+            >Scikit-learn</span
+          >
+          <span
+            class="px-3 py-1 rounded-full bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 text-sm text-slate-700 dark:text-slate-200"
+            >Operations Analytics</span
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="py-14">
+      <div class="max-w-6xl mx-auto px-6">
+        <p class="text-center text-3xl font-extrabold">
+          🚀 Featured
+          <span
+            class="bg-clip-text text-transparent bg-gradient-to-r from-[#00A8E8] to-[#FF9900]"
+            >Projects</span
+          >
+        </p>
+        <p class="text-center mt-3 text-slate-600 dark:text-slate-200">
+          A selection of my main GitHub projects.
+        </p>
+
+        <div class="mt-10 grid md:grid-cols-2 gap-5">
+          <!-- Card 1 -->
+          <div
+            class="group bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-2xl p-6 hover:shadow-xl hover:shadow-black/5 dark:hover:shadow-black/30 transition"
+          >
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3
+                  class="text-xl font-bold group-hover:text-[#00A8E8] transition"
+                >
+                  Predictive Maintenance Project
+                </h3>
+                <p class="mt-2 text-slate-600 dark:text-slate-200 text-sm">
+                  Predict failures and support maintenance decisions using an
+                  end-to-end ML workflow.
+                </p>
+              </div>
+              <span
+                class="h-10 w-10 rounded-xl bg-gradient-to-br from-[#00A8E8]/30 to-[#FF9900]/20 border border-slate-200 dark:border-white/10"
+              ></span>
+            </div>
+            <div class="mt-4 flex flex-wrap gap-2 text-xs">
+              <span
+                class="px-2.5 py-1 rounded-full bg-slate-100 dark:bg-white/10"
+                >ML</span
+              >
+              <span
+                class="px-2.5 py-1 rounded-full bg-slate-100 dark:bg-white/10"
+                >Reliability</span
+              >
+              <span
+                class="px-2.5 py-1 rounded-full bg-slate-100 dark:bg-white/10"
+                >Python</span
+              >
+            </div>
+            <div class="mt-5 flex gap-3">
+              <a
+                href="https://github.com/sergie-o/Predictive-Maintenance-Project"
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center justify-center h-10 px-4 rounded-lg bg-gradient-to-r from-[#00A8E8] to-[#FF9900] text-white font-semibold"
+              >
+                View Repo →
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div
+            class="group bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-2xl p-6 hover:shadow-xl hover:shadow-black/5 dark:hover:shadow-black/30 transition"
+          >
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3
+                  class="text-xl font-bold group-hover:text-[#00A8E8] transition"
+                >
+                  Heartbeat Sensei
+                </h3>
+                <p class="mt-2 text-slate-600 dark:text-slate-200 text-sm">
+                  Signal/time-series oriented project with an end-to-end
+                  pipeline mindset.
+                </p>
+              </div>
+              <span
+                class="h-10 w-10 rounded-xl bg-gradient-to-br from-[#00A8E8]/30 to-[#FF9900]/20 border border-slate-200 dark:border-white/10"
+              ></span>
+            </div>
+            <div class="mt-4 flex flex-wrap gap-2 text-xs">
+              <span
+                class="px-2.5 py-1 rounded-full bg-slate-100 dark:bg-white/10"
+                >Time Series</span
+              >
+              <span
+                class="px-2.5 py-1 rounded-full bg-slate-100 dark:bg-white/10"
+                >Pipeline</span
+              >
+              <span
+                class="px-2.5 py-1 rounded-full bg-slate-100 dark:bg-white/10"
+                >Python</span
+              >
+            </div>
+            <div class="mt-5 flex gap-3">
+              <a
+                href="https://github.com/sergie-o/heartbeat_sensei"
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center justify-center h-10 px-4 rounded-lg bg-gradient-to-r from-[#00A8E8] to-[#FF9900] text-white font-semibold"
+              >
+                View Repo →
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div
+            class="group bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-2xl p-6 hover:shadow-xl hover:shadow-black/5 dark:hover:shadow-black/30 transition"
+          >
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3
+                  class="text-xl font-bold group-hover:text-[#00A8E8] transition"
+                >
+                  CampusGuard AI
+                </h3>
+                <p class="mt-2 text-slate-600 dark:text-slate-200 text-sm">
+                  ML project focused on wellbeing signals and translating
+                  predictions into insights.
+                </p>
+              </div>
+              <span
+                class="h-10 w-10 rounded-xl bg-gradient-to-br from-[#00A8E8]/30 to-[#FF9900]/20 border border-slate-200 dark:border-white/10"
+              ></span>
+            </div>
+            <div class="mt-4 flex flex-wrap gap-2 text-xs">
+              <span
+                class="px-2.5 py-1 rounded-full bg-slate-100 dark:bg-white/10"
+                >Classification</span
+              >
+              <span
+                class="px-2.5 py-1 rounded-full bg-slate-100 dark:bg-white/10"
+                >Feature Eng</span
+              >
+              <span
+                class="px-2.5 py-1 rounded-full bg-slate-100 dark:bg-white/10"
+                >Python</span
+              >
+            </div>
+            <div class="mt-5 flex gap-3">
+              <a
+                href="https://github.com/sergie-o/campusguard_ai"
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center justify-center h-10 px-4 rounded-lg bg-gradient-to-r from-[#00A8E8] to-[#FF9900] text-white font-semibold"
+              >
+                View Repo →
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div
+            class="group bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-2xl p-6 hover:shadow-xl hover:shadow-black/5 dark:hover:shadow-black/30 transition"
+          >
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3
+                  class="text-xl font-bold group-hover:text-[#00A8E8] transition"
+                >
+                  ClarityFlow
+                </h3>
+                <p class="mt-2 text-slate-600 dark:text-slate-200 text-sm">
+                  “Personal OS for managers” concept: structured prioritization
+                  and operational clarity.
+                </p>
+              </div>
+              <span
+                class="h-10 w-10 rounded-xl bg-gradient-to-br from-[#00A8E8]/30 to-[#FF9900]/20 border border-slate-200 dark:border-white/10"
+              ></span>
+            </div>
+            <div class="mt-4 flex flex-wrap gap-2 text-xs">
+              <span
+                class="px-2.5 py-1 rounded-full bg-slate-100 dark:bg-white/10"
+                >Systems</span
+              >
+              <span
+                class="px-2.5 py-1 rounded-full bg-slate-100 dark:bg-white/10"
+                >Ops Mindset</span
+              >
+              <span
+                class="px-2.5 py-1 rounded-full bg-slate-100 dark:bg-white/10"
+                >Productivity</span
+              >
+            </div>
+            <div class="mt-5 flex gap-3">
+              <a
+                href="https://github.com/sergie-o/clarityflow"
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center justify-center h-10 px-4 rounded-lg bg-gradient-to-r from-[#00A8E8] to-[#FF9900] text-white font-semibold"
+              >
+                View Repo →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-14 bg-slate-50 dark:bg-[#111827]">
+      <div class="max-w-6xl mx-auto px-6">
+        <p class="text-center text-3xl font-extrabold">
+          🎯 Let's
+          <span
+            class="bg-clip-text text-transparent bg-gradient-to-r from-[#00A8E8] to-[#FF9900]"
+            >Work</span
+          >
+          together
+        </p>
+        <p class="text-center mt-3 text-slate-600 dark:text-slate-200">
+          The fastest way to reach me is LinkedIn or email.
+        </p>
+
+        <div class="mt-8 flex flex-wrap justify-center gap-3">
+          <a
+            href="mailto:sergioeguakun11@gmail.com"
+            class="inline-flex items-center justify-center h-11 px-6 rounded-lg bg-gradient-to-r from-[#00A8E8] to-[#FF9900] text-white font-semibold shadow-lg shadow-[#00A8E8]/10"
+          >
+            Email me
+          </a>
+          <a
+            href="https://www.linkedin.com/in/sergio-eguakun-machine-learning-engineer/"
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center justify-center h-11 px-6 rounded-lg border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-white/5 hover:bg-white dark:hover:bg-white/10 font-semibold"
+          >
+            LinkedIn
+          </a>
+          <a
+            href="https://github.com/sergie-o"
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center justify-center h-11 px-6 rounded-lg border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-white/5 hover:bg-white dark:hover:bg-white/10 font-semibold"
+          >
+            GitHub
+          </a>
+        </div>
+
+        <div
+          class="mt-10 text-center text-sm text-slate-500 dark:text-slate-300"
+        >
+          Prefer email?
+          <a
+            class="underline hover:text-[#00A8E8]"
+            href="mailto:sergioeguakun11@gmail.com"
+            >sergioeguakun11@gmail.com</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-8 border-t border-slate-200 dark:border-white/10">
+      <div
+        class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-3"
+      >
+        <p class="text-slate-600 dark:text-slate-300 text-sm">
+          © <span id="year"></span> Sergio Eguakun • Built with Tailwind +
+          GitHub Pages
+        </p>
+
+        <div class="flex items-center gap-3">
+          <a
+            href="https://github.com/sergie-o"
+            target="_blank"
+            rel="noopener"
+            class="text-slate-600 dark:text-slate-300 hover:text-[#00A8E8]"
+          >
+            <i class="bi bi-github"></i> GitHub
+          </a>
+          <a
+            href="https://www.linkedin.com/in/sergio-eguakun-machine-learning-engineer/"
+            target="_blank"
+            rel="noopener"
+            class="text-slate-600 dark:text-slate-300 hover:text-[#00A8E8]"
+          >
+            <i class="bi bi-linkedin"></i> LinkedIn
+          </a>
+          <a
+            href="mailto:sergioeguakun11@gmail.com"
+            class="text-slate-600 dark:text-slate-300 hover:text-[#00A8E8]"
+          >
+            <i class="bi bi-envelope"></i> Email
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu (keeps the template behavior)
+      function Menu(e) {
+        const list = document.querySelector("nav ul");
+        if (!list) return;
+
+        if (list.classList.contains("top-[-400px]")) {
+          list.classList.remove("top-[-400px]", "opacity-0");
+          list.classList.add("top-[64px]", "opacity-100");
+          e.name = "close-outline";
+        } else {
+          list.classList.add("top-[-400px]", "opacity-0");
+          list.classList.remove("top-[64px]", "opacity-100");
+          e.name = "menu-outline";
+        }
+      }
+
+      // Theme toggle (dark/light) with persistence + system default
+      const root = document.documentElement;
+      const btn = document.getElementById("themeToggle");
+      const icon = document.getElementById("themeIcon");
+
+      const setIcon = () => {
+        if (!icon) return;
+        icon.textContent = root.classList.contains("dark") ? "🌙" : "☀️";
+      };
+
+      const saved = localStorage.getItem("theme");
+      if (saved === "dark") root.classList.add("dark");
+      if (saved === "light") root.classList.remove("dark");
+      if (
+        !saved &&
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+      ) {
+        root.classList.add("dark");
+      }
+      setIcon();
+
+      btn?.addEventListener("click", () => {
+        root.classList.toggle("dark");
+        localStorage.setItem(
+          "theme",
+          root.classList.contains("dark") ? "dark" : "light",
+        );
+        setIcon();
+      });
+
+      // Footer year
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+
+    <!-- IMPORTANT: Removed smtpjs (do NOT include it on GitHub Pages) -->
   </body>
 </html>
